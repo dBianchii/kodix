@@ -28,7 +28,7 @@ client.query('Select * from "public"."Lead_Track"', (err, res) => {
 
 router.get('/', function (req, res) {
     //res.send(array[0].name + " " + array[0].email + " " + array[1].name + " " + array[1].email)
-    res.render('leadTrack', { data: array })
+    res.render('leadtrack', { data: array })
 });
 
 
