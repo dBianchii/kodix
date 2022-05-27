@@ -1,10 +1,10 @@
-const { Client } = require('pg')
+const { Pool } = require('pg')
 require('dotenv').config();
 const connectionString = process.env.POSTGREKODIXCONNECTIONSTRING
-const client = new Client({
+const pool = new Pool({
     connectionString: connectionString,
     ssl: {
         rejectUnauthorized: false,
     },
 });
-module.exports = client;
+module.exports = pool;

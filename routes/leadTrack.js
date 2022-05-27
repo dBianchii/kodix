@@ -1,13 +1,12 @@
 var express = require('express');
+const { compileClientWithDependenciesTracked } = require('pug');
 var router = express.Router();
-const client = require('./db')
+const pool = require('./db')
 
 router.get('/', function (req, res) {
-    client.connect();
-    client.query('Select * from "public"."Lead_Track"', (err, result) => {
-        client.end()
+    pool.query('Select * from "public"."Lead_Track"', (err, result) => {
+        if (err) throw err
         res.json(result.rows)
-        //res.render('leadtrack', { data: result.rows })
     })
 });
 
