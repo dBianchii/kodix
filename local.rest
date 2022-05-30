@@ -1,0 +1,52 @@
+
+GET http://localhost:4000/
+
+### LOGIN ###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "login": "Gabriel",
+    "password": "password"
+}
+
+### GERAR NOVA TOKEN ###
+POST http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5MzA5OTd9.atB05x-7WMToCivT1GGwoVabi82ByXuBS8_wa0v5tTo"
+}
+
+### REGISTRAR USUARIOS ###
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "login": "Gabriel",
+    "password": "password"
+}
+###
+
+
+### GERAR NOVO LEADTRACK ###
+POST http://localhost:3000/leadtrack/new
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5MTg2MTMsImV4cCI6MTY1MzkxODYyOH0.uZMvb1mVRfpT7Q9VUKHrhmktC3-zfIkAlyIvSi2UxWY
+{
+    "name": "name",
+    "email": "email",
+    "tagSite": "tagSite",
+    "tag": "tag",
+    "city": "city",
+    "phone_number": "phonenumber",
+    "utm_souce": "null",
+    "utm_campaign": "null",
+    "utm_content": "null"
+
+}
+
+###
+GET http://localhost:3000/users/list
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5MzI5OTIsImV4cCI6MTY1MzkzMzAzMn0.p0jVqxjT9Esk4b0EWPplemnbxL8EnvydFRzCtrF7z-8
