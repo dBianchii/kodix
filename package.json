@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "startAll": "npm-run-all --parallel start startAuth",
     "start": "node ./bin/www",
-    "devStart": "nodemon ./bin/www"
+    "startAuth": "node authServer.js",
+    "devStart": "nodemon ./bin/www",
+    "devStartAuth": "nodemon authServer.js"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
     "clean-css": "^4.1.11",
     "constantinople": "^3.1.1",
@@ -15,6 +19,7 @@
     "dotenv": "^16.0.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
     "lorem-ipsum": "^2.0.3",
     "md5": "^2.2.1",
     "mersenne-twister": "^1.1.0",
