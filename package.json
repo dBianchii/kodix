@@ -5,7 +5,7 @@
   "scripts": {
     "startAll": "npm-run-all --parallel start startAuth",
     "start": "node ./bin/www",
-    "startAuth": "node authServer.js",
+    "startAuth": "node ./bin/www2",
     "devStart": "nodemon ./bin/www",
     "devStartAuth": "nodemon authServer.js"
   },
