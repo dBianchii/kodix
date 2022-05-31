@@ -1,7 +1,4 @@
-
-GET http://localhost:3000/
-###
-
+### LOGOUT
 DELETE http://localhost:3000/authenticate/logout
 Content-Type: application/json
 
@@ -14,8 +11,8 @@ POST http://localhost:3000/authenticate/login
 Content-Type: application/json
 
 {
-    "login": "Mahadeva",
-    "password": "meukodix10"
+    "login": "Admin",
+    "password": "1234567890"
 }
 
 ### GERAR NOVA TOKEN ###
@@ -23,7 +20,7 @@ POST http://localhost:3000/authenticate/token
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjQyOTN9.2Xg994Ge-dREmv6rs0FaxloRVRknTbewfWWNTAZq-zU"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTQwMDMyNjR9.J6fhvsZtWWcIoszvN7F9iryFJ98a9sgi1nsYtQk_uuM"
 }
 
 ### REGISTRAR USUARIOS ###
@@ -36,24 +33,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjM4N
     "password": "meukodix10",
     "role": "Admin"
 }
-###
-
 
 ### GERAR NOVO LEADTRACK ###
 POST http://localhost:3000/leadtrack/new
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjE1NjMsImV4cCI6MTY1Mzk2Mzk2M30.j2NhZd3WO29CLPICfa3mFyG5c1ylrzVgVjLWc38rXLE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTQwMDMyOTEsImV4cCI6MTY1NDAwMzMxMX0.bueIGmd3CiZKe95OXkB_Kh-7VD4wXq6cM2SKQu-QwcE
 
 {
-    "name": "name",
-    "email": "email",
-    "tagSite": "tagSite",
-    "tag": "tag",
-    "city": "city",
-    "phone_number": "235342543"
+    "name": "Eu",
+    "email": "email@email.com",
+    "tag_site": "tagasdwa",
+    "tag": "YEAAAA",
+    "city": "Ribeirao Amarelo",
+    "phone_number": "321324234"
 }
 
-###
+### LISTAR USUARIOS
 GET http://localhost:3000/users/list
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjQzMjEsImV4cCI6MTY1Mzk2NDM0MX0.CbT8m7dc6K0Pm9vIxSrJmEhnUjgLc-cl2uA2yn2UZV8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjU5OTcsImV4cCI6MTY1Mzk2NjAxN30.dogzG8DgTq8U2fcIuujre31pcYYc81wzTjay9IJfCiY
