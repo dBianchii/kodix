@@ -1,30 +1,40 @@
 
-GET http://localhost:4000/
+GET http://localhost:3000/
+###
 
-### LOGIN ###
-POST http://localhost:4000/login
+DELETE http://localhost:3000/authenticate/logout
 Content-Type: application/json
 
 {
-    "login": "Gabriel",
-    "password": "password"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjQ1MjAsImV4cCI6MTY1Mzk2NDU0MH0.Wom6Vu6v_9kimC5XoUij3w7mQJcnHtpExOG688syQYU"
+}
+
+### LOGIN ###
+POST http://localhost:3000/authenticate/login
+Content-Type: application/json
+
+{
+    "login": "Mahadeva",
+    "password": "meukodix10"
 }
 
 ### GERAR NOVA TOKEN ###
-POST http://localhost:4000/token
+POST http://localhost:3000/authenticate/token
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5MzA5OTd9.atB05x-7WMToCivT1GGwoVabi82ByXuBS8_wa0v5tTo"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjQyOTN9.2Xg994Ge-dREmv6rs0FaxloRVRknTbewfWWNTAZq-zU"
 }
 
 ### REGISTRAR USUARIOS ###
 POST http://localhost:3000/users/register
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjM4NjgsImV4cCI6MTY1Mzk2NjI2OH0.Z2iAJ6uTBGdMO9LcshvHTtDBCoOFgMWLsEBYSB72w7s
 
 {
-    "login": "Gabriel",
-    "password": "password"
+    "login": "Mahadeva",
+    "password": "meukodix10",
+    "role": "Admin"
 }
 ###
 
@@ -32,21 +42,18 @@ Content-Type: application/json
 ### GERAR NOVO LEADTRACK ###
 POST http://localhost:3000/leadtrack/new
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5MTg2MTMsImV4cCI6MTY1MzkxODYyOH0.uZMvb1mVRfpT7Q9VUKHrhmktC3-zfIkAlyIvSi2UxWY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjE1NjMsImV4cCI6MTY1Mzk2Mzk2M30.j2NhZd3WO29CLPICfa3mFyG5c1ylrzVgVjLWc38rXLE
+
 {
     "name": "name",
     "email": "email",
     "tagSite": "tagSite",
     "tag": "tag",
     "city": "city",
-    "phone_number": "phonenumber",
-    "utm_souce": "null",
-    "utm_campaign": "null",
-    "utm_content": "null"
-
+    "phone_number": "235342543"
 }
 
 ###
 GET http://localhost:3000/users/list
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5MzI5OTIsImV4cCI6MTY1MzkzMzAzMn0.p0jVqxjT9Esk4b0EWPplemnbxL8EnvydFRzCtrF7z-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTM5NjQzMjEsImV4cCI6MTY1Mzk2NDM0MX0.CbT8m7dc6K0Pm9vIxSrJmEhnUjgLc-cl2uA2yn2UZV8

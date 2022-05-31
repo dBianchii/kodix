@@ -10,6 +10,10 @@ var bodyParser = require('body-parser');
 app.use(express.json())
 app.use(bodyParser.json())
 
+app.delete('/logout', (req, res) => {
+    refreshTokens = refreshTokens.filter(token => token !== req.body.token)
+    res.sendStatus(204)
+})
 
 app.post('/login', AuthenticateUser, (req, res) => {
     const username = req.body.username
@@ -62,7 +66,7 @@ async function AuthenticateUser(req, res, next) {
 }
 
 function generateAccessToken(user) {
-    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '40s' })
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30m' })
 }
 
 

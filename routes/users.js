@@ -8,28 +8,28 @@ require('dotenv').config()
 
 router.use(express.json())
 
-router.get('/list', authenticate, async (req, res) => {
-    const users = await db.selectUsers();
-
-    res.json(users)
+router.get('/list', authenticate.authorize, async (req, res) => {
+    try {
+        const users = await db.selectUsers();
+        res.json(users)
+    }
+    catch {
+        res.status(500).send()
+    }
 })
 
-router.post('/register', async (req, res) => {
+router.post('/register', authenticate.authorize, async (req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
-        const queryString = "Insert into users values (uuid_generate_v4(), '" + req.body.name + "', '" + hashedPassword + "')"
+        await db.registerUser(req.body.login, hashedPassword, req.body.role)
 
-        await db.registerUser(req.body.name, hashedPassword)
-        pool.query(queryString, (err, result) => {
-            if (err) throw err
-        })
         res.status(201).send()
     } catch {
         res.status(500).send()
     }
 })
 
-//router.post('/roles', authenticate, async (req, res) => {
+//router.post('/roles', authenticate.authorize, async (req, res) => {
 //    try {
 //        pool.query('Insert into userRoles values (' + req.body.name + ', ' + req.body.Role, (err, result) => {
 //if (err) throw err
