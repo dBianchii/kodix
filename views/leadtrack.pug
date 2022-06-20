@@ -1,9 +1,24 @@
 doctype html
 html(lang="en")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous")
     head
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
-    body 
-    h1 #{data[0].name} é pai de #{data[1]. name}
+    body
+        div(class="container")
+            div(class="card")
+                div(class = "card-header") Pesquisar Tags Despertar
+
+                    form(action="/leadtrack/list", method="post")
+                        div(class="mb-3")
+                            select(name="tag" class="form-control")
+                                option(value ="e-book-doula-2") e-book-doula-2
+                                option(value ="land-ebook-dor-parto") land-ebook-dor-parto
+                                option(value ="sadhana-jun-22") sadhana-jun-22
+                                option(value ="land-desnecesarea") land-desnecesarea
+                                option(value ="land-plano-parto") land-plano-parto
+                            input(class="form-control btn-primary btn-submit" type="submit", value="Pesquisar Leads")
+                

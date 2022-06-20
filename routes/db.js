@@ -40,8 +40,8 @@ async function selectUsers() {
 
 
     const res = await pool.query('SELECT * FROM users')
-    //const client = await connect(){}
-    //const res = await client.query('SELECT * FROM users')
+        //const client = await connect(){}
+        //const res = await client.query('SELECT * FROM users')
     return res.rows
 }
 
@@ -59,9 +59,9 @@ async function selectRoles() {
 async function registerUser(login, hashedPassword, role) {
     connect()
     var generateduuid = uuid.v4()
-    //Insert into users
+        //Insert into users
     await pool.query(`INSERT INTO users VALUES ('${generateduuid}', '${login}', '${hashedPassword}')`)
-    //Insert into userRole
+        //Insert into userRole
     var query = `INSERT INTO user_Roles VALUES ('${generateduuid}', '${role}')`
     await pool.query(query)
 }
@@ -72,4 +72,11 @@ async function insertLeadTrack(name, email, tag_site, tag, city, phone_number, u
     await pool.query(query)
 }
 
-module.exports = { selectUsers, selectRoles, registerUser, insertLeadTrack }
+async function selectFromWhere(table_name, whereStatement) {
+    connect();
+    var query = (`SELECT * FROM ${table_name} WHERE ${whereStatement}`)
+    const res = await pool.query(query)
+    return res.rows
+}
+
+module.exports = { selectUsers, selectRoles, registerUser, insertLeadTrack, selectFromWhere }
