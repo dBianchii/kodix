@@ -35,9 +35,9 @@ router.get('/', async(req, res) => {
     res.render('leadtrack')
 })
 
-router.post('/list', async(req, res) => {
+router.post('/', async(req, res) => {
     let response = await db.selectFromWhere('lead_track', ("tag = '" + req.body.tag + "'"))
-    res.render('leadtrackList', { title: 'title', response })
+    res.render('leadtrack', { title: 'title', response })
     var r = 3
 })
 
