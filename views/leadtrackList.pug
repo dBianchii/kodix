@@ -9,12 +9,14 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Document
     body
-    table(class="table")
-      th Name
-      th Email
-      th Tag
-      th Cidade
-      th Data Envio
+    input(type="text" id="myInput" onkeyup="myFunction()" placeholder="Pesquisar...")
+    table(class="table" id="myTable")
+      tr(class="header")
+        th Name
+        th Email
+        th Tag
+        th Cidade
+        th Data Envio
       each elem,i in response
         tr
           td !{elem.name}
@@ -25,6 +27,18 @@ html(lang="en")
           td !{elem.submission_date}
 
 
-      //for lead in response 
-      //  tr
-      //    td #{lead.name}
+script.
+  const myFunction = () => {
+    const trs = document.querySelectorAll('#myTable tr:not(.header)')
+    const filter = document.querySelector('#myInput').value
+    const regex = new RegExp(filter, 'i')
+    const isFoundInTds = td => regex.test(td.innerHTML)
+    const isFound = childrenArr => childrenArr.some(isFoundInTds)
+    const setTrStyleDisplay = ({ style, children }) => {
+      style.display = isFound([
+        ...children // <-- All columns
+      ]) ? '' : 'none' 
+    }
+
+    trs.forEach(setTrStyleDisplay)
+  }
