@@ -38,12 +38,7 @@ router.get('/', async(req, res) => {
 router.post('/', async(req, res) => {
     let response = await db.selectFromWhere('lead_track', ("tag = '" + req.body.tag + "'"))
     res.render('leadtrack', { title: 'title', response })
-    var r = 3
 })
 
-router.get('/blabla', function(req, res) {
-    var asd = [{ id: 1, name: 'ble', }, { id: 2, name: 'BLAA' }]
-    res.render('leadtrackList', { title: 'title', asd });
-});
 
 module.exports = router;
