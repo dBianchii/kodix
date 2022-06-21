@@ -36,7 +36,11 @@ router.get('/', async(req, res) => {
 })
 
 router.post('/', async(req, res) => {
-    let response = await db.selectFromWhere('lead_track', ("tag = '" + req.body.tag + "'"))
+    var response
+    if (req.body.tag == "todos")
+        response = await db.selectAll('lead_track')
+    else
+        response = await db.selectFromWhere('lead_track', ("tag = '" + req.body.tag + "'"))
     res.render('leadtrack', { title: 'title', response })
 })
 

@@ -72,11 +72,18 @@ async function insertLeadTrack(name, email, tag_site, tag, city, phone_number, u
     await pool.query(query)
 }
 
-async function selectFromWhere(table_name, whereStatement) {
+async function selectFromWhere(tableName, whereStatement) {
     connect();
-    var query = (`SELECT * FROM ${table_name} WHERE ${whereStatement}`)
+    var query = (`SELECT * FROM ${tableName} WHERE ${whereStatement}`)
     const res = await pool.query(query)
     return res.rows
 }
 
-module.exports = { selectUsers, selectRoles, registerUser, insertLeadTrack, selectFromWhere }
+async function selectAll(tableName) {
+    connect()
+    var query = (`SELECT * FROM ${tableName}`)
+    const res = await pool.query(query)
+    return res.rows
+}
+
+module.exports = { selectUsers, selectRoles, registerUser, insertLeadTrack, selectFromWhere, selectAll }
