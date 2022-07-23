@@ -17,7 +17,7 @@ router.use(express.json());
 //    })
 //});
 
-router.post('/new', authenticate.authorize, async(req, res) => {
+router.post('/new', async(req, res) => {
     //var otherQueryString = `INSERT INTO lead_track VALUES (uuid_generate_v4, Now(), '${req.body.name}', '${req.body.email}', '${req.body.tag_site}', '${req.body.tag}', 
     //'${req.body.city}', '${req.body.phone_number}', ${req.body.utm_source}, ${req.body.utm_campaign}, ${req.body.utm_content})`
     //var queryString = "Insert into lead_track values (uuid_generate_v4(), Now(), '" + req.body.name + "', '" + req.body.email + "', '" + req.body.tag_site + "', '" +

@@ -8,17 +8,16 @@ require('dotenv').config()
 
 router.use(express.json())
 
-router.get('/list', authenticate.authorize, async (req, res) => {
+router.get('/list', authenticate.authorize, async(req, res) => {
     try {
         const users = await db.selectUsers();
         res.json(users)
-    }
-    catch {
+    } catch {
         res.status(500).send()
     }
 })
 
-router.post('/register', authenticate.authorize, async (req, res) => {
+router.post('/register', async(req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10)
         await db.registerUser(req.body.login, hashedPassword, req.body.role)
